@@ -31,7 +31,7 @@
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background-color: var(--bg-primary);
-  background-image: 
+  background-image:
     radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
     radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.08) 0px, transparent 50%);
   color: var(--text-primary);
@@ -58,6 +58,7 @@ header {
   font-weight: 700;
   background: var(--accent-gradient);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: flex;
   align-items: center;
@@ -109,6 +110,7 @@ main {
   margin-bottom: 0.75rem;
   background: linear-gradient(to right, #ffffff, #d1d5db);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -335,7 +337,8 @@ tr:hover td {
 #fullscreen-container * {
   user-select: none;
   -webkit-user-select: none;
-  pointer-events: none; /* Make clicks pass directly to container */
+  pointer-events: none;
+  /* Make clicks pass directly to container */
 }
 
 #fullscreen-container:fullscreen {
@@ -350,7 +353,8 @@ tr:hover td {
 .instruction-overlay {
   text-align: center;
   color: #ffffff;
-  opacity: 0.25; /* Low opacity instruction */
+  opacity: 0.25;
+  /* Low opacity instruction */
   transition: var(--transition-smooth);
   pointer-events: none;
   animation: breathe 3s ease-in-out infinite alternate;
@@ -362,6 +366,7 @@ tr:hover td {
     opacity: 0.15;
     transform: scale(0.98);
   }
+
   100% {
     opacity: 0.28;
     transform: scale(1.02);
@@ -401,7 +406,8 @@ tr:hover td {
   border: 1px solid rgba(255, 255, 255, 0.05);
   padding: 0.85rem 1.35rem;
   border-radius: 12px;
-  color: rgba(255, 255, 255, 0.65); /* faded text */
+  color: rgba(255, 255, 255, 0.65);
+  /* faded text */
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   font-size: 0.9rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -413,7 +419,8 @@ tr:hover td {
 }
 
 #toast.show {
-  opacity: 0.55; /* Low opacity, faded look */
+  opacity: 0.55;
+  /* Low opacity, faded look */
   transform: translateY(0) scale(1);
 }
 
@@ -422,9 +429,17 @@ tr:hover td {
 }
 
 @keyframes popPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.08); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 footer {
@@ -453,7 +468,7 @@ footer a:hover {
   header {
     padding: 1.5rem 1rem 0.5rem;
   }
-  
+
   main {
     padding: 1rem;
     gap: 1.5rem;
@@ -466,7 +481,7 @@ footer a:hover {
   .intro-text h1 {
     font-size: 1.75rem;
   }
-  
+
   .instruction-overlay h2 {
     font-size: 1.75rem;
   }
@@ -474,7 +489,7 @@ footer a:hover {
   .instruction-overlay p {
     font-size: 1rem;
   }
-  
+
   .btn-primary {
     width: 100%;
     justify-content: center;
