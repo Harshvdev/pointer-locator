@@ -13,6 +13,7 @@ const fullscreenContainer = document.getElementById('fullscreen-container');
 const toast = document.getElementById('toast');
 const tbody = document.getElementById('coordinates-tbody');
 const emptyState = document.getElementById('empty-state');
+const themeToggle = document.getElementById('theme-toggle');
 
 // Load coordinates from LocalStorage on load
 function init() {
@@ -172,8 +173,29 @@ function handleFullscreenChange() {
   }
 }
 
+// Toggle between Light and Dark themes
+function toggleTheme() {
+  let currentTheme = document.documentElement.getAttribute('data-theme');
+  if (!currentTheme) {
+    // If no explicit data-theme is set, read prefers-color-scheme
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    currentTheme = prefersDark ? 'dark' : 'light';
+  }
+  
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', newTheme);
+  
+  const metaColorScheme = document.querySelector('meta[name="color-scheme"]');
+  if (metaColorScheme) {
+    metaColorScheme.content = newTheme;
+  }
+  
+  localStorage.setItem('color-scheme', newTheme);
+}
+
 // Event Listeners
 btnStart.addEventListener('click', enterFullscreen);
+themeToggle.addEventListener('click', toggleTheme);
 
 // Fullscreen container click - record coordinates
 fullscreenContainer.addEventListener('click', (e) => {
